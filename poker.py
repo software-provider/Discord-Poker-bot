@@ -3,7 +3,7 @@ from enum import Enum
 from functools import total_ordering
 from itertools import combinations
 from typing import List, Tuple
-import random
+import secrets
 
 SUITS = ('♠', '♥', '♦', '♣')
 
@@ -210,7 +210,7 @@ class Deck:
     def __init__(self):
         self.cards = [Card(suit, rank) for suit in SUITS
                                        for rank in RANK_INFO]
-        random.shuffle(self.cards)
+        secrets.SystemRandom().shuffle(self.cards)
 
     def draw(self) -> Card:
         return self.cards.pop()
