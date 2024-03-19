@@ -188,7 +188,7 @@ def show_help(game: Game, message: discord.Message) -> List[str]:
 # players the list of settable options.
 def show_options(game: Game, message: discord.Message) -> List[str]:
     longest_option = len(max(game.options, key=len))
-    longest_value = max([len(str(val)) for key, val in game.options.items()])
+    longest_value = max(len(str(val)) for key, val in game.options.items())
     option_lines = []
     for option in GAME_OPTIONS:
         name_spaces = ' ' * (longest_option - len(option) + 2)
